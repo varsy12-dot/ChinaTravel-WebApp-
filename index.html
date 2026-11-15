@@ -118,8 +118,46 @@
         grid-template-columns: 1fr;
       }
     }
-    h1, .intro {
+     h1, .intro {
       text-align: center;
+    }
+
+    /* 多彩贵州와 手를 굵은 금색으로 강조 */
+    .point-title,
+    .point-hand {
+      color: #FFD36A;
+      font-weight: 900;
+    }
+
+    /* 多彩贵州는 제목처럼 크게 */
+    .point-title {
+      font-size: clamp(36px, 6vw, 54px);
+    }
+
+    /* 手는 주변 글씨보다 조금 크게 */
+    .point-hand {
+      font-size: 1.2em;
+    }
+
+    /* 컴퓨터에서는 학교 이름을 한 줄로 표시 */
+    .mobile-break {
+      display: none;
+    }
+
+    /* 휴대폰 화면 설정 */
+    @media (max-width: 600px) {
+      .mobile-break {
+        display: inline;
+      }
+
+      .university {
+        font-size: 22px;
+      }
+
+      .intro {
+        font-size: 22px;
+        word-break: keep-all;
+      }
     }
   </style>
 </head>
@@ -138,10 +176,10 @@
 </div>
       <p class="semester">2027학년 1학기 여행중국어</p>
       <h1>나만의 중국 여행 가이드 Wep-App</h1>
-   <p class="intro" style="font-weight: bold;">
-  多彩贵州 여행<br>
+ <p class="intro" style="font-weight: bold;">
+  <span class="point-title">多彩贵州</span> 여행<br>
   관광지 · 먹거리 · 교통 · 숙박<br>
-  한 手에 쏙!
+  한 <span class="point-hand">手</span>에 쏙!
 </p>
     </header>
 
