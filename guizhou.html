@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>구이저우 주요 관광지 | 나만의 중국 여행</title>
+<style>*,:before,:after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}h1,h2,h3,p,figure{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0}img,svg{display:block}img{max-width:100%}button,a{-webkit-tap-highlight-color:transparent}
+
+:root {
+  --ink: #18324a;
+  --forest: #4a9fd8;
+  --forest-deep: #2178b5;
+  --sage: #83b8d9;
+  --cream: #f8fcff;
+  --mint: #e4f4ff;
+  --line: #c9e4f5;
+  --accent: #9fdbff;
+}
+
+@layer base {
+  body {
+    background: #edf7fd;
+    color: var(--ink);
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+.app-shell {
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--cream);
+  box-shadow: 0 0 60px rgb(43 102 142 / 12%);
+  padding-bottom: 82px;
+}
+
+.topbar {
+  height: 66px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  align-items: center;
+  background: rgb(246 243 235 / 94%);
+  border-bottom: 1px solid rgb(39 83 114 / 8%);
+}
+
+.brand {
+  text-align: center;
+  line-height: 1;
+}
+.brand span {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+}
+.brand small {
+  display: block;
+  margin-top: 5px;
+  color: #768178;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+}
+.icon-button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.icon-button:active {
+  background: #e5e9e2;
+  transform: scale(0.95);
+}
+.icon-button.is-saved {
+  color: var(--accent);
+}
+.icon-button.is-saved svg {
+  fill: currentColor;
+}
+
+.place-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 11px 16px 12px;
+  scrollbar-width: none;
+  background: var(--cream);
+}
+.place-tabs::-webkit-scrollbar {
+  display: none;
+}
+.place-tabs button {
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #d8dcd5;
+  border-radius: 99px;
+  color: #7a817d;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+.place-tabs a {
+  flex: 0 0 auto;
+  padding: 12px 19px;
+  border: 1px solid #d8dcd5;
+  border-radius: 99px;
+  color: #526159;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+.place-tabs a:hover {
+  color: white;
+  background: var(--forest);
+  border-color: var(--forest);
+}
+.place-tabs a span {
+  margin-right: 6px;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+.destination {
+  scroll-margin-top: 20px;
+  border-top: 1px solid rgb(39 83 114 / 12%);
+  background: var(--cream);
+}
+.destination + .destination {
+  border-top: 24px solid #dceffa;
+}
+.place-tabs button span {
+  margin-right: 6px;
+  font-family: Georgia, serif;
+  font-size: 10px;
+  opacity: 0.6;
+}
+.place-tabs button.active {
+  color: white;
+  background: var(--forest);
+  border-color: var(--forest);
+  box-shadow: 0 5px 14px rgb(74 159 216 / 20%);
+}
+
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background: #2d6387;
+}
+.hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: reveal 0.7s ease both;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(18 79 119 / 3%) 28%, rgb(14 62 94 / 72%) 100%);
+}
+.hero-location {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-shadow: 0 1px 6px #000;
+}
+.hero-copy {
+  position: absolute;
+  left: 24px;
+  right: 72px;
+  bottom: 34px;
+  color: white;
+}
+.hero-copy p {
+  margin-bottom: 9px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+}
+.hero-copy h1 {
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(34px, 9vw, 44px);
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 30%);
+}
+.hero-copy span {
+  display: block;
+  margin-top: 9px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  opacity: 0.82;
+}
+.hero-count {
+  position: absolute;
+  right: 22px;
+  bottom: 38px;
+  padding-left: 12px;
+  border-left: 1px solid rgb(255 255 255 / 50%);
+  color: white;
+  font:
+    20px Georgia,
+    serif;
+}
+.hero-count span {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  opacity: 0.65;
+}
+
+.content {
+  padding: 27px 20px 40px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+.tags span {
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: var(--mint);
+  color: var(--forest-deep);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.summary {
+  font-family: "Noto Serif KR", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+}
+
+.audio-card {
+  margin: 32px 0 40px;
+  padding: 22px 18px 15px;
+  border-radius: 5px;
+  background: var(--forest);
+  color: white;
+  box-shadow: 0 18px 42px rgb(74 159 216 / 24%);
+}
+.audio-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 3px 17px;
+  border-bottom: 1px solid rgb(255 255 255 / 14%);
+}
+.audio-heading strong {
+  display: block;
+  color: #dff4ff;
+  font:
+    10px Georgia,
+    serif;
+  letter-spacing: 0.18em;
+}
+.audio-heading span {
+  display: block;
+  margin-top: 5px;
+  font:
+    600 14px "Noto Serif KR",
+    serif;
+}
+.sound-mark {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 50%;
+}
+.sound-mark i {
+  width: 2px;
+  height: 9px;
+  background: #dff4ff;
+  border-radius: 3px;
+}
+.sound-mark i:nth-child(2) {
+  height: 17px;
+}
+.sound-mark i:nth-child(3) {
+  height: 12px;
+}
+.sound-mark i:nth-child(4) {
+  height: 6px;
+}
+.audio-buttons {
+  display: grid;
+  gap: 8px;
+  padding-top: 14px;
+}
+.audio-buttons button {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 11px;
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 4px;
+  text-align: left;
+  transition: 0.2s;
+}
+.audio-buttons button:hover,
+.audio-buttons button.playing {
+  background: rgb(255 255 255 / 14%);
+  border-color: rgb(223 244 255 / 75%);
+}
+.play-circle {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #dff4ff;
+  color: var(--forest);
+}
+.audio-buttons button > span:nth-child(2) {
+  font-size: 12px;
+  font-weight: 600;
+}
+.audio-buttons small {
+  display: block;
+  margin-bottom: 2px;
+  color: #d2edff;
+  font-size: 9px;
+  font-weight: 500;
+}
+.audio-buttons em {
+  color: #dff4ff;
+  font-size: 10px;
+  font-style: normal;
+}
+.prototype-note {
+  margin-top: 12px;
+  color: #cdeaff;
+  font-size: 9px;
+  text-align: center;
+}
+
+.details {
+  border-top: 1px solid var(--line);
+}
+.detail-row {
+  display: grid;
+  grid-template-columns: 43px 1fr;
+  gap: 12px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+.detail-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--forest);
+  background: var(--mint);
+}
+.eyebrow {
+  color: var(--forest);
+  font:
+    9px Georgia,
+    serif;
+  letter-spacing: 0.16em;
+}
+.detail-row h2 {
+  margin: 7px 0 9px;
+  font:
+    600 17px "Noto Serif KR",
+    serif;
+  letter-spacing: -0.03em;
+}
+.detail-row p {
+  white-space: pre-line;
+  color: #405c72;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+.story-image {
+  position: relative;
+  height: 285px;
+  margin: 36px -20px 0;
+  overflow: hidden;
+}
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(13 69 107 / 74%), transparent 75%);
+}
+.story-image figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  bottom: 26px;
+  color: white;
+}
+.story-image figcaption span {
+  display: block;
+  margin-bottom: 9px;
+  color: #dff4ff;
+  font:
+    9px Georgia,
+    serif;
+  letter-spacing: 0.19em;
+}
+.story-image figcaption strong {
+  font:
+    600 18px/1.55 "Noto Serif KR",
+    serif;
+}
+
+.next-place {
+  padding-top: 34px;
+}
+.next-place > span {
+  color: #8a968d;
+  font:
+    9px Georgia,
+    serif;
+  letter-spacing: 0.17em;
+}
+.next-place button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--ink);
+  text-align: left;
+}
+.next-place button > span {
+  font:
+    600 20px "Noto Serif KR",
+    serif;
+}
+.next-place button small {
+  display: block;
+  margin-bottom: 4px;
+  color: #8a938d;
+  font:
+    11px "Noto Serif KR",
+    serif;
+  letter-spacing: 0.1em;
+}
+.next-place button svg {
+  transform: rotate(180deg);
+}
+
+.bottom-nav {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 480px);
+  height: 72px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  transform: translateX(-50%);
+  background: rgb(250 249 245 / 96%);
+  border-top: 1px solid #dfe1dc;
+  backdrop-filter: blur(15px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #9aa19d;
+  font-size: 9px;
+}
+.bottom-nav button.active {
+  color: var(--forest);
+  font-weight: 700;
+}
+.bottom-nav button.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0.45;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 700px) {
+  .app-shell {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .bottom-nav {
+    bottom: 24px;
+    border-radius: 0 0 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Wide destination detail page */
+.app-shell {
+  width: 100%;
+  margin: 0;
+  padding-bottom: 0;
+  box-shadow: none;
+}
+
+.topbar {
+  height: 88px;
+  padding: 0 clamp(24px, 5vw, 80px);
+  grid-template-columns: 140px 1fr 140px;
+}
+.brand span {
+  font-size: 18px;
+}
+.brand small {
+  margin-top: 7px;
+  font-size: 11px;
+}
+.icon-button {
+  width: 48px;
+  height: 48px;
+}
+
+.place-tabs {
+  justify-content: center;
+  padding: 18px 24px;
+}
+.place-tabs button {
+  padding: 12px 19px;
+  font-size: 14px;
+}
+
+.hero {
+  height: min(72vh, 760px);
+  min-height: 580px;
+}
+.hero-location {
+  top: 42px;
+  left: max(40px, calc((100vw - 1180px) / 2));
+  font-size: 13px;
+}
+.hero-copy {
+  left: max(40px, calc((100vw - 1180px) / 2));
+  right: 180px;
+  bottom: 70px;
+}
+.hero-copy p {
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+.hero-copy h1 {
+  font-size: clamp(58px, 7vw, 92px);
+}
+.hero-copy span {
+  margin-top: 16px;
+  font-size: 19px;
+}
+.hero-count {
+  right: max(40px, calc((100vw - 1180px) / 2));
+  bottom: 76px;
+  padding-left: 18px;
+  font-size: 30px;
+}
+.hero-count span {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.content {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 70px 0 100px;
+}
+.tags span {
+  padding: 8px 13px;
+  font-size: 13px;
+}
+.summary {
+  max-width: 960px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.75;
+}
+
+.audio-card {
+  margin: 64px 0 80px;
+  padding: 34px 38px 24px;
+  border-radius: 8px;
+}
+.audio-heading {
+  gap: 18px;
+  padding: 0 3px 25px;
+}
+.audio-heading strong {
+  font-size: 13px;
+}
+.audio-heading span {
+  margin-top: 7px;
+  font-size: 20px;
+}
+.sound-mark {
+  width: 48px;
+  height: 48px;
+}
+.audio-buttons {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding-top: 22px;
+}
+.audio-buttons button {
+  min-height: 82px;
+  grid-template-columns: 50px 1fr auto;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+.play-circle {
+  width: 44px;
+  height: 44px;
+}
+.audio-buttons button > span:nth-child(2) {
+  font-size: 16px;
+}
+.audio-buttons small {
+  font-size: 11px;
+}
+.audio-buttons em {
+  font-size: 12px;
+}
+.prototype-note {
+  margin-top: 17px;
+  font-size: 11px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 0;
+}
+.detail-row {
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  padding: 42px 0;
+}
+.detail-icon {
+  width: 52px;
+  height: 52px;
+}
+.eyebrow {
+  font-size: 11px;
+}
+.detail-row h2 {
+  margin: 9px 0 13px;
+  font-size: 22px;
+}
+.detail-row p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.story-image {
+  height: 520px;
+  margin: 80px 0 0;
+  border-radius: 8px;
+}
+.story-image figcaption {
+  left: 48px;
+  bottom: 46px;
+}
+.story-image figcaption span {
+  font-size: 12px;
+}
+.story-image figcaption strong {
+  font-size: 30px;
+}
+
+.next-place {
+  padding-top: 60px;
+}
+.next-place > span {
+  font-size: 12px;
+}
+.next-place button {
+  margin-top: 14px;
+  padding: 22px 0;
+}
+.next-place button > span {
+  font-size: 28px;
+}
+.next-place button small {
+  font-size: 14px;
+}
+
+.page-footer {
+  min-height: 190px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 50px max(40px, calc((100vw - 1120px) / 2));
+  background: #1f608c;
+  color: white;
+}
+.page-footer strong {
+  display: block;
+  font:
+    22px Georgia,
+    serif;
+  letter-spacing: 0.18em;
+}
+.page-footer span {
+  display: block;
+  margin-top: 10px;
+  color: #c0e1f5;
+  font-size: 13px;
+}
+.page-footer p {
+  color: #e7f5fc;
+  font:
+    17px "Noto Serif KR",
+    serif;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    height: 72px;
+    padding: 0 14px;
+    grid-template-columns: 90px 1fr 90px;
+  }
+  .brand span {
+    font-size: 14px;
+  }
+  .brand small {
+    font-size: 9px;
+  }
+  .icon-button {
+    width: 42px;
+    height: 42px;
+  }
+  .place-tabs {
+    justify-content: flex-start;
+    padding: 13px 16px;
+  }
+  .place-tabs button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .hero {
+    height: 68vh;
+    min-height: 520px;
+  }
+  .hero-location {
+    top: 26px;
+    left: 22px;
+    font-size: 11px;
+  }
+  .hero-copy {
+    left: 22px;
+    right: 70px;
+    bottom: 40px;
+  }
+  .hero-copy p {
+    font-size: 17px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(42px, 13vw, 58px);
+  }
+  .hero-copy span {
+    font-size: 15px;
+  }
+  .hero-count {
+    right: 20px;
+    bottom: 44px;
+    font-size: 24px;
+  }
+  .content {
+    width: min(100% - 36px, 1120px);
+    padding: 44px 0 70px;
+  }
+  .summary {
+    font-size: 22px;
+    line-height: 1.75;
+  }
+  .audio-card {
+    margin: 42px 0 54px;
+    padding: 26px 20px 18px;
+  }
+  .audio-buttons {
+    grid-template-columns: 1fr;
+  }
+  .audio-buttons button {
+    min-height: 74px;
+  }
+  .details {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+  .detail-row {
+    padding: 34px 0;
+  }
+  .detail-row h2 {
+    font-size: 20px;
+  }
+  .detail-row p {
+    font-size: 15px;
+  }
+  .story-image {
+    height: 390px;
+    margin-top: 55px;
+  }
+  .story-image figcaption {
+    left: 26px;
+    bottom: 28px;
+  }
+  .story-image figcaption strong {
+    font-size: 23px;
+  }
+  .page-footer {
+    min-height: 220px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 45px 24px;
+  }
+  .page-footer p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .top-actions .icon-button:first-child {
+    display: none;
+  }
+  .topbar {
+    grid-template-columns: 64px 1fr 64px;
+  }
+  .hero-copy h1 {
+    font-size: 40px;
+  }
+  .summary {
+    font-size: 20px;
+  }
+  .detail-row {
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+  }
+  .detail-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .audio-buttons em {
+    display: none;
+  }
+  .story-image {
+    height: 330px;
+  }
+  .next-place button > span {
+    font-size: 24px;
+  }
+  .hero-count {
+    display: none;
+  }
+}
+
+/* Desktop website presentation: never collapse into an app shell */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.site-header {
+  height: 112px;
+  display: flex;
+  align-items: center;
+  background: rgb(248 252 255 / 96%);
+  border-bottom: 1px solid rgb(74 159 216 / 20%);
+  box-shadow: 0 8px 30px rgb(74 159 216 / 9%);
+}
+
+.site-header-inner {
+  width: min(1180px, calc(100% - 96px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.site-logo {
+  flex: 0 0 auto;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.site-logo span {
+  display: block;
+  font:
+    25px Georgia,
+    serif;
+  letter-spacing: 0.2em;
+}
+
+.site-logo small {
+  display: block;
+  margin-top: 9px;
+  color: #54768f;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.site-nav a {
+  position: relative;
+  padding: 18px 0;
+  color: #355a75;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  height: 2px;
+  background: var(--forest);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.site-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.site-nav a span {
+  margin-right: 8px;
+  color: var(--forest);
+  font:
+    13px Georgia,
+    serif;
+}
+
+.hero {
+  height: 720px;
+  min-height: 720px;
+}
+
+.hero-location {
+  top: 42px;
+  left: max(48px, calc((100vw - 1180px) / 2));
+  font-size: 15px;
+}
+
+.hero-copy {
+  left: max(48px, calc((100vw - 1180px) / 2));
+  right: 200px;
+  bottom: 74px;
+}
+
+.hero-copy p {
+  margin-bottom: 14px;
+  font-size: 25px;
+}
+
+.hero-copy h1 {
+  font-size: 88px;
+}
+
+.hero-copy span {
+  margin-top: 16px;
+  font-size: 21px;
+}
+
+.hero-count {
+  display: block;
+  right: max(48px, calc((100vw - 1180px) / 2));
+  bottom: 78px;
+  font-size: 34px;
+}
+
+.content {
+  width: min(1120px, calc(100% - 64px));
+  padding: 76px 0 110px;
+}
+
+.summary {
+  max-width: 1020px;
+  font-size: 36px;
+  line-height: 1.72;
+}
+
+.audio-buttons {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.audio-card {
+  margin: 64px 0 80px;
+  padding: 38px 42px 28px;
+  border-radius: 12px;
+}
+
+.audio-heading strong {
+  font-size: 15px;
+}
+
+.audio-heading span {
+  font-size: 23px;
+}
+
+.audio-buttons button {
+  min-height: 90px;
+  padding: 14px 20px;
+  border-radius: 8px;
+}
+
+.audio-buttons button > span:nth-child(2) {
+  font-size: 18px;
+}
+
+.audio-buttons small {
+  font-size: 13px;
+}
+
+.audio-buttons em {
+  font-size: 14px;
+}
+
+.prototype-note {
+  font-size: 13px;
+}
+
+.details {
+  grid-template-columns: 1fr;
+  column-gap: 0;
+}
+
+.detail-row {
+  grid-template-columns: 68px 1fr;
+  gap: 24px;
+  padding: 52px 0;
+}
+
+.detail-row h2 {
+  margin: 12px 0 18px;
+  font-size: 34px;
+  line-height: 1.35;
+}
+
+.detail-row p {
+  max-width: 930px;
+  font-size: 23px;
+  line-height: 1.85;
+}
+
+.eyebrow {
+  font-size: 15px;
+}
+
+.detail-icon {
+  width: 62px;
+  height: 62px;
+}
+
+.tags span {
+  padding: 9px 15px;
+  font-size: 15px;
+}
+
+.story-image {
+  height: 520px;
+  margin: 0;
+}
+
+.story-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 80px;
+}
+
+.story-image figcaption {
+  left: 48px;
+  bottom: 46px;
+}
+
+.story-image figcaption strong {
+  font-size: 34px;
+}
+
+.page-footer {
+  min-height: 210px;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px max(48px, calc((100vw - 1120px) / 2));
+}
+
+.page-footer {
+  background: var(--forest-deep);
+}
+
+.page-footer strong {
+  font-size: 25px;
+}
+
+.page-footer span {
+  color: #c9e9fb;
+  font-size: 15px;
+}
+
+.page-footer p {
+  color: #eef9ff;
+  font-size: 20px;
+}
+
+/* Fit presentation and app preview widths without horizontal scrolling */
+@media (max-width: 1179px) {
+  .site-header {
+    height: auto;
+    min-height: 96px;
+    padding: 18px 0;
+  }
+
+  .site-header-inner {
+    width: calc(100% - 48px);
+    gap: 32px;
+  }
+
+  .site-nav {
+    gap: clamp(18px, 3vw, 32px);
+  }
+
+  .site-nav a {
+    font-size: 15px;
+  }
+
+  .hero {
+    height: min(68vh, 650px);
+    min-height: 520px;
+  }
+
+  .hero-location,
+  .hero-copy {
+    left: 32px;
+  }
+
+  .hero-copy {
+    right: 140px;
+    bottom: 52px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(52px, 8vw, 76px);
+  }
+
+  .hero-count {
+    right: 32px;
+    bottom: 56px;
+  }
+
+  .content {
+    width: calc(100% - 64px);
+    padding: 60px 0 88px;
+  }
+
+  .summary {
+    font-size: clamp(28px, 3.5vw, 34px);
+  }
+
+  .page-footer {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header-inner {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .site-logo span {
+    font-size: 21px;
+  }
+
+  .site-logo small {
+    font-size: 11px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .site-nav a {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+
+  .site-nav a span {
+    display: none;
+  }
+
+  .hero {
+    height: 64vh;
+    min-height: 480px;
+  }
+
+  .hero-location {
+    top: 24px;
+    left: 20px;
+    font-size: 12px;
+  }
+
+  .hero-copy {
+    right: 20px;
+    bottom: 38px;
+    left: 20px;
+  }
+
+  .hero-copy p {
+    font-size: 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .hero-copy span {
+    font-size: 15px;
+  }
+
+  .hero-count {
+    display: none;
+  }
+
+  .content {
+    width: calc(100% - 36px);
+    padding: 42px 0 64px;
+  }
+
+  .tags span {
+    font-size: 13px;
+  }
+
+  .summary {
+    font-size: clamp(23px, 6vw, 28px);
+  }
+
+  .audio-card {
+    margin: 44px 0 56px;
+    padding: 28px 20px 20px;
+  }
+
+  .audio-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-row {
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    padding: 40px 0;
+  }
+
+  .detail-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .detail-row h2 {
+    font-size: clamp(27px, 7vw, 32px);
+  }
+
+  .detail-row p {
+    font-size: clamp(19px, 5vw, 22px);
+  }
+
+  .story-gallery {
+    gap: 18px;
+    margin-top: 54px;
+  }
+
+  .story-image {
+    height: min(72vh, 560px);
+  }
+
+  .story-image figcaption {
+    left: 24px;
+    bottom: 26px;
+  }
+
+  .story-image figcaption strong {
+    font-size: 25px;
+  }
+
+  .page-footer {
+    min-height: 220px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 42px 24px;
+  }
+
+  .page-footer p {
+    font-size: 17px;
+  }
+}
+
+/* App presentation layout: one narrow vertical canvas at every viewport size */
+body {
+  background: #dceefa;
+}
+
+.app-shell {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 0 48px rgb(31 96 140 / 16%);
+}
+
+.site-header {
+  height: auto;
+  min-height: 0;
+  padding: 20px 0 14px;
+}
+
+.site-header-inner {
+  width: calc(100% - 32px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.site-logo span {
+  font-size: 21px;
+}
+
+.site-logo small {
+  margin-top: 7px;
+  font-size: 11px;
+}
+
+.site-nav {
+  width: 100%;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.site-nav a {
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+.site-nav a span {
+  display: none;
+}
+
+.hero {
+  height: 620px;
+  min-height: 0;
+}
+
+.hero-location {
+  top: 24px;
+  left: 20px;
+  font-size: 11px;
+}
+
+.hero-copy {
+  right: 20px;
+  bottom: 38px;
+  left: 20px;
+}
+
+.hero-copy p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(40px, 10vw, 52px);
+}
+
+.hero-copy span {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.hero-count {
+  display: none;
+}
+
+.content {
+  width: calc(100% - 36px);
+  padding: 42px 0 64px;
+}
+
+.tags {
+  margin-bottom: 18px;
+}
+
+.tags span {
+  padding: 7px 11px;
+  font-size: 12px;
+}
+
+.summary {
+  font-size: 24px;
+  line-height: 1.75;
+}
+
+.audio-card {
+  margin: 44px 0 56px;
+  padding: 30px 22px 20px;
+}
+
+.audio-heading strong {
+  font-size: 17px;
+}
+
+.audio-heading span {
+  margin-top: 8px;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.audio-buttons {
+  grid-template-columns: 1fr;
+}
+
+.audio-buttons button {
+  min-height: 98px;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 13px;
+  padding: 14px 16px;
+}
+
+.audio-buttons button > span:nth-child(2) {
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.audio-buttons small {
+  margin-bottom: 4px;
+  font-size: 17px;
+}
+
+.audio-buttons em {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.play-circle {
+  width: 48px;
+  height: 48px;
+}
+
+.prototype-note {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.detail-row {
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  padding: 40px 0;
+}
+
+.detail-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.eyebrow {
+  font-size: 12px;
+}
+
+.detail-row h2 {
+  margin: 10px 0 14px;
+  font-size: 29px;
+}
+
+.detail-row p {
+  max-width: none;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.story-gallery {
+  gap: 18px;
+  margin-top: 54px;
+}
+
+.story-image {
+  height: 520px;
+}
+
+.story-image figcaption {
+  left: 24px;
+  bottom: 26px;
+}
+
+.story-image figcaption strong {
+  font-size: 24px;
+}
+
+.page-footer {
+  min-height: 220px;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 42px 24px;
+}
+
+.page-footer p {
+  font-size: 17px;
+}
+.back-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;background:#163b70;color:#fff;font-size:13px}.back-bar a{padding:8px 10px;border:1px solid #ffffff70;border-radius:6px;font-weight:700}.back-bar span{font-size:12px}.app-shell{padding-bottom:0}.destination{scroll-margin-top:16px}a:focus-visible,button:focus-visible{outline:3px solid #f8b43e;outline-offset:4px}.audio-feedback{min-height:1.6em;margin-top:12px;font-size:14px;color:inherit}.audio-buttons button[aria-pressed="true"]{outline:2px solid currentColor;outline-offset:2px}.footer-home{margin-top:22px;display:inline-flex;padding:12px 18px;background:#163b70;color:#fff;border-radius:8px;font-size:15px}.page-footer{gap:18px}@media(max-width:370px){.audio-card{padding-left:16px;padding-right:16px}.audio-buttons button{padding:12px 10px;gap:10px;grid-template-columns:40px minmax(0,1fr) auto}.play-circle{width:38px;height:38px}.audio-buttons button>span:nth-child(2){font-size:19px}.audio-buttons small,.audio-buttons em{font-size:14px}.detail-row h2{font-size:25px}.detail-row p{font-size:18px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}</style></head>
+<body><main class="app-shell">
+<div class="back-bar"><a href="index.html">← 메인으로</a><span>영남대학교 · 여행중국어</span></div>
+<header class="site-header"><div class="site-header-inner"><a class="site-logo" href="index.html"><span>GUIZHOU</span><small>贵州旅行 · 구이저우 여행 가이드</small></a><nav class="site-nav" aria-label="관광지 목차"><a href="#huangguoshu"><span>01</span>황궈수폭포</a><a href="#xijiang"><span>02</span>서강천호묘채</a><a href="#fanjingshan"><span>03</span>판징산</a></nav></div></header>
+
+<section class="destination" id="huangguoshu">
+ <div class="hero">
+  <img src="assets/images/huangguoshu-1.webp" alt="황궈수폭포 풍경">
+  <div class="hero-shade"></div>
+  <div class="hero-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> GUIZHOU · 안순 · 전닝</div>
+  <div class="hero-copy"><p>黄果树瀑布</p><h1>황궈수폭포</h1><span>Huangguoshu Waterfall</span></div>
+  <div class="hero-count">01<span>/ 03</span></div>
+ </div>
+ <article class="content">
+  <div class="tags"><span>자연 절경</span><span>폭포</span><span>추천 명소</span></div>
+  <p class="summary">높이 77.8m, 너비 101m. 거대한 물줄기가 쏟아지는 구이저우의 절경. 이번 중국 여행에서는 황궈수폭포의 웅장함을 직접 만나보세요!</p>
+  <section class="audio-card" aria-label="황궈수폭포 음성 안내">
+   <div class="audio-heading"><div class="sound-mark"><i></i><i></i><i></i><i></i></div><div><strong>VOICE GUIDE</strong><span>이야기로 만나는 황궈수폭포</span></div></div>
+   <div class="audio-buttons"><button type="button" data-audio="assets/audio/huangguoshu-zh.mp3" data-label="황궈수폭포 중국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>中文</small>중국어 음성 안내</span><em>듣기</em></button><button type="button" data-audio="assets/audio/huangguoshu-ko.mp3" data-label="황궈수폭포 한국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>한국어</small>한국어 음성 안내</span><em>듣기</em></button></div>
+   <p class="prototype-note">한국어·중국어 음성 안내 · 버튼을 다시 누르면 정지합니다</p>
+   <p class="audio-feedback" role="status" aria-live="polite"></p>
+  </section>
+  <div class="details"><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><span class="eyebrow">WHERE · 01</span><h2>어디에 있나요?</h2><p>중국 구이저우성 안순시<br>전닝 부이족 먀오족 자치현</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-7M7 15h10l-3-4h2l-4-6-4 6h2Z"/></svg></div><div><span class="eyebrow">STORY · 02</span><h2>폭포 이름에 ‘열매’가 들어간다고요?</h2><p>‘황궈수’는 ‘노란 열매가 열리는 나무’라는 뜻이에요. 지역에 전해지는 신화 속 나무에서 폭포의 이름이 유래했다고 해요. 풍경을 보고, 이름에 담긴 이야기도 함께 기억해보세요.</p></div></section></div>
+  <div class="story-gallery"><figure class="story-image"><img src="assets/images/huangguoshu-2.jpg" alt="황궈수폭포의 또 다른 모습 1" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 02</span><strong>황궈수폭포의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure><figure class="story-image"><img src="assets/images/huangguoshu-3.jpg" alt="황궈수폭포의 또 다른 모습 2" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 03</span><strong>황궈수폭포의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure></div>
+ </article>
+</section>
+<section class="destination" id="xijiang">
+ <div class="hero">
+  <img src="assets/images/xijiang-1.webp" alt="서강천호묘채 풍경">
+  <div class="hero-shade"></div>
+  <div class="hero-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> GUIZHOU · 첸둥난 · 레이산</div>
+  <div class="hero-copy"><p>西江千户苗寨</p><h1>서강천호묘채</h1><span>Xijiang Miao Village</span></div>
+  <div class="hero-count">02<span>/ 03</span></div>
+ </div>
+ <article class="content">
+  <div class="tags"><span>전통 마을</span><span>먀오족 문화</span><span>야경</span></div>
+  <p class="summary">산비탈에 층층이 들어선 목조가옥, 하늘을 향해 이어지는 계단식 논, 그리고 마을 사이를 흐르는 강. 구이저우의 풍경 속에서 먀오족이 이어온 삶과 문화를 만나보세요.</p>
+  <section class="audio-card" aria-label="서강천호묘채 음성 안내">
+   <div class="audio-heading"><div class="sound-mark"><i></i><i></i><i></i><i></i></div><div><strong>VOICE GUIDE</strong><span>이야기로 만나는 서강천호묘채</span></div></div>
+   <div class="audio-buttons"><button type="button" data-audio="assets/audio/xijiang-zh.mp3" data-label="서강천호묘채 중국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>中文</small>중국어 음성 안내</span><em>듣기</em></button><button type="button" data-audio="assets/audio/xijiang-ko.mp3" data-label="서강천호묘채 한국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>한국어</small>한국어 음성 안내</span><em>듣기</em></button></div>
+   <p class="prototype-note">한국어·중국어 음성 안내 · 버튼을 다시 누르면 정지합니다</p>
+   <p class="audio-feedback" role="status" aria-live="polite"></p>
+  </section>
+  <div class="details"><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><span class="eyebrow">WHERE · 01</span><h2>어디에 있나요?</h2><p>중국 구이저우성 첸둥난주 레이산현</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-7 9 7M5 10v10h14V10M9 20v-6h6v6"/></svg></div><div><span class="eyebrow">STORY · 02</span><h2>‘천호’는 무슨 뜻일까요?</h2><p>‘千户’는 ‘천 가구’라는 뜻이에요. 이곳은 산을 따라 자리한 10여 개의 자연마을이 연결된 거대한 먀오족 마을이랍니다.</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4ZM19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7Z"/></svg></div><div><span class="eyebrow">CULTURE · 03</span><h2>풍경 속에 문화가 있어요</h2><p>산비탈을 따라 선 전통 목조가옥부터 은장신구, 노래와 춤, 대대로 이어온 풍속까지. ‘야외박물관’이라는 별명에 담긴 매력을 발견해보세요.</p></div></section></div>
+  <div class="story-gallery"><figure class="story-image"><img src="assets/images/xijiang-2.webp" alt="서강천호묘채의 또 다른 모습 1" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 02</span><strong>서강천호묘채의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure><figure class="story-image"><img src="assets/images/xijiang-3.webp" alt="서강천호묘채의 또 다른 모습 2" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 03</span><strong>서강천호묘채의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure></div>
+ </article>
+</section>
+<section class="destination" id="fanjingshan">
+ <div class="hero">
+  <img src="assets/images/fanjingshan-1.jpg" alt="판징산 풍경">
+  <div class="hero-shade"></div>
+  <div class="hero-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> GUIZHOU · 통런 · 장커우</div>
+  <div class="hero-copy"><p>梵净山</p><h1>판징산</h1><span>Mount Fanjing</span></div>
+  <div class="hero-count">03<span>/ 03</span></div>
+ </div>
+ <article class="content">
+  <div class="tags"><span>세계자연유산</span><span>트레킹</span><span>불교문화</span></div>
+  <p class="summary">해발 2,572m에 이르는 산세, 희귀한 생명들이 살아가는 자연, 그리고 오랜 세월 이어져 온 불교문화. 2018년 세계자연유산으로 등재된 판징산에서 구이저우의 또 다른 매력을 만나보세요.</p>
+  <section class="audio-card" aria-label="판징산 음성 안내">
+   <div class="audio-heading"><div class="sound-mark"><i></i><i></i><i></i><i></i></div><div><strong>VOICE GUIDE</strong><span>이야기로 만나는 판징산</span></div></div>
+   <div class="audio-buttons"><button type="button" data-audio="assets/audio/fanjingshan-zh.mp3" data-label="판징산 중국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>中文</small>중국어 음성 안내</span><em>듣기</em></button><button type="button" data-audio="assets/audio/fanjingshan-ko.mp3" data-label="판징산 한국어 음성 안내" aria-pressed="false"><span class="play-circle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg></span><span><small>한국어</small>한국어 음성 안내</span><em>듣기</em></button></div>
+   <p class="prototype-note">한국어·중국어 음성 안내 · 버튼을 다시 누르면 정지합니다</p>
+   <p class="audio-feedback" role="status" aria-live="polite"></p>
+  </section>
+  <div class="details"><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><span class="eyebrow">WHERE · 01</span><h2>어디에 있나요?</h2><p>중국 구이저우성 통런시<br>장커우·인장·쑹타오 세 현의 경계</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 20 7-13 4 7 2-3 5 9ZM8.3 10.2l1.8 1.1 1.6-1.1"/></svg></div><div><span class="eyebrow">HEIGHT · 02</span><h2>얼마나 높을까요?</h2><p>판징산에서 가장 높은 봉우리는 펑황산, 해발 2,572m! 산이 품은 깊고 다양한 자연을 떠올려보세요.</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4S8 3 5 10c-2 5 3 8 7 6 6-3 8-12 8-12ZM5 20c2-5 6-8 11-11"/></svg></div><div><span class="eyebrow">NATURE · 03</span><h2>이곳에서만 살아가는 특별한 생명</h2><p>구이저우금사후와 판징산전나무의 세계 유일 서식·분포지. 멋진 경관만큼이나 생태적 가치가 특별한 곳이에요.</p></div></section><section class="detail-row"><div class="detail-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></svg></div><div><span class="eyebrow">HISTORY · 04</span><h2>자연 속에 깃든 오랜 문화</h2><p>예부터 신성하게 여겨졌던 산으로, 명·청 시대에 융성한 불교문화의 역사도 간직하고 있어요.</p></div></section></div>
+  <div class="story-gallery"><figure class="story-image"><img src="assets/images/fanjingshan-2.jpg" alt="판징산의 또 다른 모습 1" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 02</span><strong>판징산의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure><figure class="story-image"><img src="assets/images/fanjingshan-3.jpg" alt="판징산의 또 다른 모습 2" loading="lazy"><figcaption><span>贵州 · GUIZHOU · 03</span><strong>판징산의 풍경을<br>천천히 만나보세요.</strong></figcaption></figure></div>
+ </article>
+</section>
+<footer class="page-footer"><div><strong>GUIZHOU</strong><span>贵州旅行 · 구이저우 여행 가이드</span></div><p>풍경 너머, 오래 기억될 이야기를 만나보세요.</p><a class="footer-home" href="index.html">나만의 중국 여행으로 돌아가기</a></footer>
+<audio id="guide-audio" preload="none"></audio>
+</main><script>(() => {
+ const buttons = [...document.querySelectorAll('[data-audio]')];
+ const audio = document.getElementById('guide-audio');
+ let current = null;
+ const playIcon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 7 8 5-8 5Z"/></svg>';
+ const stopIcon = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 7v10M15 7v10"/></svg>';
+ function status(button, text) { if(button) button.closest('.audio-card').querySelector('.audio-feedback').textContent = text; }
+ function reset() {
+   if (!current) return;
+   current.classList.remove('playing');
+   current.setAttribute('aria-pressed', 'false');
+   current.querySelector('.play-circle').innerHTML = playIcon;
+   current.querySelector('em').textContent = '듣기';
+ }
+ function stop() { audio.pause(); audio.currentTime = 0; status(current, ''); reset(); current = null; }
+ buttons.forEach(button => button.addEventListener('click', async () => {
+   if(current === button) { stop(); return; }
+   stop();
+   current = button;
+   audio.src = button.dataset.audio;
+   button.classList.add('playing');
+   button.setAttribute('aria-pressed', 'true');
+   button.querySelector('.play-circle').innerHTML = stopIcon;
+   button.querySelector('em').textContent = '재생 중';
+   status(button, '음성을 불러오는 중입니다.');
+   try { await audio.play(); if(current === button) status(button, button.dataset.label + ' 재생 중'); }
+   catch(error) { if(current === button) { reset(); status(button, '음성 파일을 불러오지 못했습니다. assets 폴더가 같은 위치에 있는지 확인해 주세요.'); current = null; } }
+ }));
+ audio.addEventListener('ended', () => { status(current, '음성 안내가 끝났습니다.'); reset(); current = null; });
+ audio.addEventListener('error', () => { if(current) { status(current, '음성 파일을 불러오지 못했습니다.'); reset(); current = null; } });
+ audio.addEventListener('timeupdate', () => {
+   if(current && !audio.paused && Number.isFinite(audio.duration)) {
+     status(current, current.dataset.label + ' · ' + Math.floor(audio.currentTime) + '초 / ' + Math.round(audio.duration) + '초');
+   }
+ });
+ window.addEventListener('pagehide', stop);
+})();</script></body></html>
